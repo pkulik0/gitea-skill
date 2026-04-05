@@ -39,11 +39,8 @@ Teaches AI coding agents to manage [Gitea](https://gitea.io) via the [`tea` CLI]
 ## Installation
 
 ```bash
-# Claude Code (recommended)
-skills add gitea-skill
-
 # Universal
-npx @anthropic-ai/skills add gitea-skill
+npx skills add pkulik0/gitea-skill
 
 # Manual
 git clone https://gitea.com/pk/gitea-skill.git
