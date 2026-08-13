@@ -15,6 +15,13 @@ status=0
 if command -v tea &>/dev/null; then
     version=$(tea --version 2>/dev/null | head -1)
     echo -e "${GREEN}[OK]${NC} tea is installed: ${version}"
+    ver=$(echo "$version" | sed -n 's/.*Version: \([0-9][0-9]*\.[0-9][0-9]*\).*/\1/p')
+    major=${ver%%.*}
+    minor=${ver#*.}
+    if [ -n "$ver" ] && [ "$major" -eq 0 ] && [ "$minor" -lt 15 ]; then
+        echo -e "${YELLOW}[WARN]${NC} tea ${ver} is older than v0.15; this skill requires v0.15+"
+        echo "  Upgrade: brew upgrade tea (macOS) or see https://gitea.com/gitea/tea"
+    fi
 else
     echo -e "${RED}[FAIL]${NC} tea is not installed"
     echo "  Install: brew install tea (macOS) or see https://gitea.com/gitea/tea"

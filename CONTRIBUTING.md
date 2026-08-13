@@ -13,7 +13,7 @@ Thanks for your interest in improving this skill! Here's how to contribute effec
 
 ### SKILL.md
 
-- Keep under 5,000 words (currently ~1,600)
+- Keep under 5,000 words (currently ~2,200)
 - Put detailed reference material in `references/`, not inline
 - Every command example must be copy-pasteable with realistic flags
 - Include both the command and what it does
@@ -43,7 +43,7 @@ Thanks for your interest in improving this skill! Here's how to contribute effec
 Before submitting, verify:
 
 1. **Triggering** -- Your changes don't break skill activation
-2. **Accuracy** -- All `tea` commands and flags are correct for tea v0.10+
+2. **Accuracy** -- All `tea` commands and flags are correct for tea v0.15+
 3. **Cross-agent** -- Nothing is agent-specific (no Claude-only features)
 
 ### Manual Test Prompts

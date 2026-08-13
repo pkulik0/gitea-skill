@@ -4,6 +4,19 @@ All notable changes to this skill will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-08-13
+
+Retargeted to tea CLI v0.15+ (tested on 0.15.1). Every documented command was checked against that CLI.
+
+### Added
+
+- Wiki, SSH keys, comments CRUD, PR review threads, workflow dispatch, admin users, git credential helper
+
+### Changed
+
+- Command forms updated for tea 0.15.1 (`tea org`, release tags, `--id` labels, milestone titles, `repos delete --owner/--name`, `repos fork --repo`, …)
+- Dropped stale v0.10 forms that now fail (`tea orgs`, `tea pulls ls --labels`, numeric release IDs, `webhooks create --url`, `--service github`)
+
 ## [1.0.0] - 2026-03-30
 
 ### Added

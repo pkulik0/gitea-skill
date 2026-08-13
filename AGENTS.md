@@ -9,7 +9,7 @@ This repository contains a Gitea skill for AI coding agents. The skill lives in 
 - Scripts go in `skills/gitea/scripts/` -- these must be executable
 - Do NOT add a `README.md` inside `skills/gitea/` -- repo-level README only
 - Keep SKILL.md under 5,000 words; move detail to references/
-- All `tea` commands must be accurate for tea v0.10+
+- All `tea` commands must be accurate for tea v0.15+
 - No XML angle brackets in SKILL.md frontmatter
 - Folder name must match the `name` field in frontmatter
 

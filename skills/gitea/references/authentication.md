@@ -124,6 +124,7 @@ tea logins add \
 | `--oauth` | `-o` | | Use OAuth2 browser flow |
 | `--client-id` | | | Custom OAuth2 client ID |
 | `--redirect-url` | | | Custom OAuth2 redirect URL |
+| `--git-credentials` | `--helper`, `-j` | | Register tea as a git credential helper for this login's URL |
 
 ## Environment Variables
 
@@ -247,10 +248,18 @@ For Gitea instances with self-signed TLS certificates:
 tea logins add --name internal --url https://gitea.internal --token TOKEN --insecure
 ```
 
+## Git Credential Helper
+
+`tea logins add --git-credentials` registers tea so `git push` / `git clone` over HTTPS use the stored token. For logins added without that flag:
+
+```bash
+tea logins helper setup
+```
+
 ## Logout
 
 ```bash
-tea logout    # remove current login
+tea logout myinstance    # login name is required
 ```
 
 ## Troubleshooting Authentication

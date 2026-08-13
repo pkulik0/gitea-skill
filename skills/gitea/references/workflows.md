@@ -8,7 +8,7 @@ Complete workflow for contributing to a project via fork:
 
 ```bash
 # 1. Fork the repository
-tea repos fork upstream-org/project
+tea repos fork --repo upstream-org/project
 
 # 2. Clone your fork
 tea clone myuser/project
@@ -86,7 +86,7 @@ Structured code review process:
 
 ```bash
 # 1. List PRs needing review
-tea pulls ls --labels "needs-review" --output table
+tea issues ls --kind pulls --labels "needs-review" --output table
 
 # 2. Checkout PR locally for testing
 tea pulls checkout 42
@@ -97,13 +97,28 @@ tea pulls checkout 42
 # 4. Approve or request changes
 tea pulls approve 42
 # or
-tea pulls reject 42
+tea pulls reject 42 "Needs tests"
 
 # 5. Merge after approval
 tea pulls merge 42 --style squash --title "feat: implement feature X (#42)"
 
 # 6. Clean up branches
 tea pulls clean 42
+```
+
+## Dispatch a Workflow
+
+```bash
+tea actions workflows ls
+tea actions workflows dispatch ci.yml --ref main --input env=prod --follow
+```
+
+## Wiki Page
+
+```bash
+tea wiki ls
+tea wiki create --title "Runbook" --content "On-call steps" --message "Add runbook"
+tea wiki view Runbook
 ```
 
 ## Bulk Operations
@@ -163,8 +178,10 @@ tea api /repos/{owner}/{repo}/topics
 
 **Add a topic:**
 ```bash
-tea api -X PUT /repos/{owner}/{repo}/topics -f topic=devops
+tea api -X PUT /repos/{owner}/{repo}/topics/devops
 ```
+
+Replace all topics with `-F topics='["devops","ci"]'` on `PUT /repos/{owner}/{repo}/topics`. `-f topic=...` is the wrong body shape.
 
 **List commits on a branch:**
 ```bash
@@ -337,7 +354,7 @@ tea webhooks create https://slack.example.com/webhook \
 tea repos migrate \
   --name github-mirror \
   --clone-url https://github.com/org/repo.git \
-  --service github \
+  --service git \
   --mirror \
   --mirror-interval 1h \
   --auth-token ghp_xxxx \

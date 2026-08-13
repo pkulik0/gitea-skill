@@ -11,8 +11,10 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/skill-1.1.0-green.svg" alt="skill: 1.1.0">
+  <img src="https://img.shields.io/badge/tea_CLI-v0.15%2B-orange.svg" alt="tea CLI: v0.15+">
+  <img src="https://img.shields.io/badge/tested_on-tea_0.15.1-blue.svg" alt="tested on tea 0.15.1">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
-  <img src="https://img.shields.io/badge/tea_CLI-v0.10%2B-orange.svg" alt="tea CLI: v0.10+">
   <img src="https://img.shields.io/badge/agents-45%2B_supported-purple.svg" alt="Agents: 45+ supported">
 </p>
 
@@ -24,13 +26,15 @@ Teaches AI coding agents to manage [Gitea](https://gitea.io) via the [`tea` CLI]
 
 | Capability | Operations |
 |:-----------|:-----------|
-| **Repositories** | Create, fork, clone, search, migrate, delete |
+| **Repositories** | Create, edit, fork, clone, search, migrate, delete |
 | **Issues** | Create, list, edit, close, comment, filter |
-| **Pull Requests** | Create, review, approve, merge, checkout |
+| **Pull Requests** | Create, edit, review, approve, merge, checkout, review comments |
 | **Releases** | Create with assets, edit, manage artifacts |
-| **CI/CD Actions** | View runs, stream logs, manage secrets |
+| **CI/CD Actions** | View/dispatch runs, stream logs, manage secrets and workflows |
 | **Labels & Milestones** | Full CRUD, sprint planning |
 | **Organizations** | Create, list, manage |
+| **Wiki** | List, view, create, edit, delete pages |
+| **SSH Keys** | List, add, delete account keys |
 | **Webhooks** | Create, update, delete |
 | **Time Tracking** | Log time, view tracked hours |
 | **Notifications** | List, read, pin, filter |
@@ -49,11 +53,12 @@ git clone https://gitea.com/pk/gitea-skill.git
 
 ## Prerequisites
 
-1. **Install tea CLI**
+1. **Install tea CLI v0.15+** (this skill is tested on **0.15.1**)
 
    ```bash
    brew install tea                           # macOS
    go install code.gitea.io/tea@latest        # From source
+   tea --version                              # expect Version: 0.15.x
    ```
 
 2. **Add a Gitea login**
